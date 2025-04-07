@@ -42,6 +42,12 @@
             color: #555;
         }
         
+        h3 {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+        
         p {
             font-size: 1.1rem;
             margin-bottom: 1.5rem;
@@ -56,6 +62,13 @@
         
         a:hover {
             opacity: 0.7;
+        }
+        
+        blockquote {
+            font-style: italic;
+            border-left: 3px solid #ccc;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
         }
         
         /* Header */
@@ -116,6 +129,16 @@
         .portfolio-item {
             margin-bottom: 2rem;
             position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
         .portfolio-item img {
@@ -124,11 +147,77 @@
             display: block;
         }
         
+        .portfolio-item-content {
+            padding: 1rem;
+        }
+        
         .portfolio-item h3 {
             font-size: 1.2rem;
             font-weight: normal;
-            margin-top: 0.8rem;
-            color: #777;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        /* Project Page */
+        .project-page {
+            display: none;
+        }
+        
+        .project-page.active {
+            display: block;
+        }
+        
+        .portfolio-grid-page {
+            display: block;
+        }
+        
+        .portfolio-grid-page.hidden {
+            display: none;
+        }
+        
+        .project-header {
+            margin: 3rem 0;
+        }
+        
+        .project-overview {
+            margin-bottom: 2rem;
+        }
+        
+        .project-section {
+            margin: 3rem 0;
+        }
+        
+        .project-image {
+            margin: 2rem 0;
+        }
+        
+        .project-image img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+        }
+        
+        .skills-list {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        
+        .skills-list li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 0.5rem 1rem;
+            background-color: #eee;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background-color: #ddd;
         }
         
         /* Footer */
@@ -203,53 +292,301 @@
 <body>
     <!-- Navigation -->
     <header class="container">
-        <a href="index.html" class="logo">Viyata Atelier</a>
+        <a href="#" class="logo">Viyata Atelier</a>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="portfolio.html" class="active">Portfolio</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="#" class="active">Portfolio</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </header>
 
-    <!-- PORTFOLIO PAGE -->
-    <main class="container">
+    <!-- Portfolio Grid Page -->
+    <main class="container portfolio-grid-page" id="portfolio-grid">
         <section>
             <h1>Portfolio</h1>
-            <p>A collection of selected works in data visualization, UI/UX design, and visual storytelling.</p>
+            <p>A collection of selected works in UX design, product management, and interactive experiences.</p>
         </section>
         
         <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="/api/placeholder/400/320" alt="Project One - Data Visualization">
-                <h3>Project One</h3>
-                <p>Interactive dashboard visualizing climate change impacts across different regions.</p>
+            <div class="portfolio-item" onclick="showProject('ux-value')">
+                <img src="/api/placeholder/400/320" alt="The Value of User Experience">
+                <div class="portfolio-item-content">
+                    <h3>The Value of User Experience</h3>
+                    <p>Exploring how UX design applies to different career paths through job analysis and industry research.</p>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <img src="/api/placeholder/400/320" alt="Exercise One - Architecture Study">
-                <h3>Exercise One</h3>
-                <p>Visual study of historical architecture at Purdue University.</p>
+            <div class="portfolio-item" onclick="showProject('starship')">
+                <img src="/api/placeholder/400/320" alt="Starship Robot Design">
+                <div class="portfolio-item-content">
+                    <h3>Starship Robot Design</h3>
+                    <p>Expanding Purdue's Starship robots to deliver textbooks, streamlining access to academic resources.</p>
+                </div>
             </div>
-            <div class="portfolio-item">
-                <img src="/api/placeholder/400/320" alt="Personal Project">
-                <h3>Personal</h3>
-                <p>Typography and poster design for music events.</p>
-            </div>
-            <div class="portfolio-item">
+            <div class="portfolio-item" onclick="showProject('bakespot')">
                 <img src="/api/placeholder/400/320" alt="BakeSpot Project">
-                <h3>BakeSpot</h3>
-                <p>UI/UX design for a baking recipe sharing platform.</p>
+                <div class="portfolio-item-content">
+                    <h3>BakeSpot</h3>
+                    <p>UI/UX design for a baking recipe sharing platform focused on community engagement.</p>
+                </div>
             </div>
-            <div class="portfolio-item">
+            <div class="portfolio-item" onclick="showProject('data-storytelling')">
                 <img src="/api/placeholder/400/320" alt="Data Storytelling">
-                <h3>Data Storytelling</h3>
-                <p>Visual narrative on global coffee consumption patterns.</p>
+                <div class="portfolio-item-content">
+                    <h3>Data Storytelling</h3>
+                    <p>Visual narrative exploring global coffee consumption patterns and sustainability impacts.</p>
+                </div>
             </div>
-            <div class="portfolio-item">
+            <div class="portfolio-item" onclick="showProject('typography')">
                 <img src="/api/placeholder/400/320" alt="Typography Study">
-                <h3>Typography Study</h3>
-                <p>Exploration of typefaces and layout principles.</p>
+                <div class="portfolio-item-content">
+                    <h3>Typography Study</h3>
+                    <p>Exploration of typefaces and layout principles for effective visual communication.</p>
+                </div>
+            </div>
+            <div class="portfolio-item" onclick="showProject('personal')">
+                <img src="/api/placeholder/400/320" alt="Personal Project">
+                <div class="portfolio-item-content">
+                    <h3>Personal</h3>
+                    <p>Typography and poster design for music events and cultural exhibitions.</p>
+                </div>
             </div>
         </div>
+    </main>
+
+    <!-- Project Detail Page: The Value of User Experience -->
+    <main class="container project-page" id="ux-value">
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+        
+        <section class="project-header">
+            <h1>The Value of User Experience</h1>
+            <blockquote>"User experience is the bridge between the user and the product, and design is the path that leads them there."</blockquote>
+        </section>
+        
+        <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>This project explored how UX design applies to different career paths by analyzing job postings, researching industry trends, and reflecting on key skills. Working collaboratively, my team and I investigated the essential UX competencies required for our dream roles, synthesized research findings, and presented our insights.</p>
+            
+            <p><strong>My Role:</strong> UX Design Product Manager<br>
+            <strong>Skills Explored:</strong> UX research, product strategy, prototyping, stakeholder communication</p>
+        </section>
+        
+        <section class="project-section">
+            <h2>Problem & Solution</h2>
+            
+            <h3>The Problem:</h3>
+            <p>User experience design is a critical component in various fields, but professionals require a diverse skill set to succeed. Understanding industry expectations and trends helps future UX professionals prepare for their careers.</p>
+            
+            <h3>The Solution:</h3>
+            <p>Through job searches, skill categorization, and secondary research, our team identified the most in-demand UX skills and industry trends, allowing us to map out the necessary competencies for our career goals.</p>
+        </section>
+        
+        <section class="project-section">
+            <h2>Process & Research</h2>
+            
+            <h3>Job Search & Skill Analysis:</h3>
+            <ul class="skills-list">
+                <li>Researched job postings, selecting UX Design Product Manager as my target role</li>
+                <li>Identified key skills such as user research, prototyping, and cross-functional collaboration</li>
+                <li>Categorized required skills with my team to find common themes across UX-related roles</li>
+            </ul>
+            
+            <h3>Industry Research:</h3>
+            <ul class="skills-list">
+                <li>Analyzed UX trends in product management, focusing on user-centered product development</li>
+                <li>Synthesized findings with my team to create a comprehensive view of UX's evolving role</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h2>Individual Contribution</h2>
+            <ul class="skills-list">
+                <li>Conducted research on the intersection of UX design and product management</li>
+                <li>Identified emerging UX trends shaping product development</li>
+                <li>Reflected on personal skill gaps and areas for growth in UX and product strategy</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h2>Outcome & Reflection</h2>
+            
+            <h3>Final Outcome:</h3>
+            <p>A team presentation and documented research outlining the value of UX across different fields, with insights into the skills required for a UX-focused career.</p>
+            
+            <h3>Learnings:</h3>
+            <p>This project deepened my understanding of UX in product management and helped me identify key skills to develop further. It reinforced the importance of user research, stakeholder collaboration, and continuous learning in UX design.</p>
+        </section>
+        
+        <div class="project-image">
+            <img src="/api/placeholder/800/500" alt="UX Research Presentation">
+        </div>
+        
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+    </main>
+
+    <!-- Project Detail Page: Starship Robot Design -->
+    <main class="container project-page" id="starship">
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+        
+        <section class="project-header">
+            <h1>Starship Robot Design</h1>
+            <blockquote>"Expanding Starship robots to deliver textbooks would streamline the process, offering students a fast, on-demand service that supports their academic needs."</blockquote>
+        </section>
+        
+        <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>Purdue's Starship robots currently deliver food, but what if they could do more? Our team explored how these autonomous robots could be used for textbook delivery, creating a convenient and efficient system for students. By reducing wait times and eliminating long bookstore lines, this service could streamline the textbook distribution process, enhancing accessibility and improving the student experience.</p>
+            
+            <p><strong>Audience:</strong> Purdue students, faculty, bookstore staff<br>
+            <strong>Constraints:</strong> Limited Starship fleet, integration with bookstore inventory, user trust in automation</p>
+        </section>
+        
+        <section class="project-section">
+            <h2>Problem & Solution</h2>
+            
+            <h3>The Problem:</h3>
+            <p>Students often face long lines and inconvenient pickup locations when retrieving textbooks, leading to delays and frustration.</p>
+            
+            <h3>The Solution:</h3>
+            <p>Our team designed a Starship-powered textbook delivery system that allows students to order books and receive them at their dorm or a designated campus location, making the process faster and more accessible.</p>
+        </section>
+        
+        <section class="project-section">
+            <h2>Process & Research</h2>
+            
+            <h3>User Research:</h3>
+            <ul class="skills-list">
+                <li>Conducted interviews with students and bookstore staff to understand textbook pickup challenges</li>
+                <li>Identified key pain points, such as time constraints and difficulty accessing the bookstore during peak hours</li>
+            </ul>
+            
+            <h3>Prototyping & Testing:</h3>
+            <ul class="skills-list">
+                <li>Designed a mobile interface allowing students to schedule textbook deliveries</li>
+                <li>Created a user journey outlining the order-to-delivery process</li>
+                <li>Iterated based on feedback, refining the system for usability and efficiency</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h2>Individual Contribution</h2>
+            <ul class="skills-list">
+                <li>Led user research by conducting interviews and analyzing survey data</li>
+                <li>Proposed an in-app scheduling feature based on student availability</li>
+                <li>Helped design a streamlined delivery request process for the bookstore</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h2>Outcome & Reflection</h2>
+            
+            <h3>Final Outcome:</h3>
+            <p>A concept prototype and user journey for textbook delivery using Starship robots, demonstrating how automation could improve access to academic resources.</p>
+            
+            <h3>Learnings:</h3>
+            <p>This project taught me how to conduct user-centered research and design solutions that balance feasibility with innovation. It reinforced the importance of considering both technological capabilities and real user needs in UX design.</p>
+        </section>
+        
+        <div class="project-image">
+            <img src="/api/placeholder/800/500" alt="Starship Robot Prototype">
+        </div>
+        
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+    </main>
+
+    <!-- BakeSpot Project (Placeholder) -->
+    <main class="container project-page" id="bakespot">
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+        
+        <section class="project-header">
+            <h1>BakeSpot</h1>
+            <blockquote>"Creating a community where baking enthusiasts can share recipes, techniques, and inspiration."</blockquote>
+        </section>
+        
+        <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>BakeSpot is a UI/UX design for a baking recipe sharing platform focused on community engagement. The project explores how to create an intuitive interface that encourages recipe sharing, learning, and connection among baking enthusiasts.</p>
+            
+            <p><strong>My Role:</strong> UX Designer<br>
+            <strong>Skills Applied:</strong> User research, wireframing, visual design, prototyping</p>
+        </section>
+        
+        <div class="project-image">
+            <img src="/api/placeholder/800/500" alt="BakeSpot Interface Design">
+        </div>
+        
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+    </main>
+
+    <!-- Data Storytelling Project (Placeholder) -->
+    <main class="container project-page" id="data-storytelling">
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+        
+        <section class="project-header">
+            <h1>Data Storytelling</h1>
+            <blockquote>"Finding the narrative hidden within the numbers to create compelling visual stories."</blockquote>
+        </section>
+        
+        <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>This project focuses on creating a visual narrative exploring global coffee consumption patterns and sustainability impacts. Through data visualization and storytelling techniques, I transformed complex datasets into accessible and engaging visual stories.</p>
+            
+            <p><strong>My Role:</strong> Data Visualization Designer<br>
+            <strong>Skills Applied:</strong> Data analysis, information design, visual storytelling</p>
+        </section>
+        
+        <div class="project-image">
+            <img src="/api/placeholder/800/500" alt="Coffee Consumption Data Visualization">
+        </div>
+        
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+    </main>
+
+    <!-- Typography Study Project (Placeholder) -->
+    <main class="container project-page" id="typography">
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+        
+        <section class="project-header">
+            <h1>Typography Study</h1>
+            <blockquote>"Typography is what language looks like."</blockquote>
+        </section>
+        
+        <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>This project explores typefaces and layout principles for effective visual communication. Through a series of experimental designs, I investigated how typography influences readability, emotional response, and message clarity.</p>
+            
+            <p><strong>My Role:</strong> Typography Designer<br>
+            <strong>Skills Applied:</strong> Typography, layout design, visual hierarchy</p>
+        </section>
+        
+        <div class="project-image">
+            <img src="/api/placeholder/800/500" alt="Typography Examples">
+        </div>
+        
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+    </main>
+
+    <!-- Personal Project (Placeholder) -->
+    <main class="container project-page" id="personal">
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
+        
+        <section class="project-header">
+            <h1>Personal</h1>
+            <blockquote>"Design is where science and art break even."</blockquote>
+        </section>
+        
+        <section class="project-section">
+            <h2>Project Overview</h2>
+            <p>This collection showcases typography and poster designs created for music events and cultural exhibitions. These personal projects allowed me to experiment with different design approaches and express my creative vision.</p>
+            
+            <p><strong>My Role:</strong> Visual Designer<br>
+            <strong>Skills Applied:</strong> Typography, composition, color theory</p>
+        </section>
+        
+        <div class="project-image">
+            <img src="/api/placeholder/800/500" alt="Poster Design Collection">
+        </div>
+        
+        <a href="#" class="back-button" onclick="showPortfolio()">← Back to Portfolio</a>
     </main>
 
     <!-- Footer -->
@@ -263,7 +600,7 @@
                 <div>
                     <h3>Contact</h3>
                     <ul class="footer-links">
-                        <li>viyata@email.com</li>
+                        <li>vruta@purdue.edu</li>
                         <li>Purdue University</li>
                         <li>West Lafayette, IN</li>
                     </ul>
@@ -282,5 +619,42 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // JavaScript to handle page transitions
+        function showProject(projectId) {
+            // Hide portfolio grid
+            document.getElementById('portfolio-grid').classList.add('hidden');
+            
+            // Hide all project pages
+            const projectPages = document.querySelectorAll('.project-page');
+            projectPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected project
+            document.getElementById(projectId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        function showPortfolio() {
+            // Hide all project pages
+            const projectPages = document.querySelectorAll('.project-page');
+            projectPages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show portfolio grid
+            document.getElementById('portfolio-grid').classList.remove('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            // Prevent default link behavior
+            return false;
+        }
+    </script>
 </body>
 </html>
