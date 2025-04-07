@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viyata Atelier - Portfolio</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #f5f5f0;
+            color: #222;
+            font-family: 'Times New Roman', serif;
+            line-height: 1.6;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Typography */
+        h1 {
+            font-size: 4rem;
+            font-weight: normal;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            font-weight: normal;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            max-width: 38rem;
+        }
+        
+        a {
+            color: #222;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        a:hover {
+            opacity: 0.7;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 3rem;
+        }
+        
+        .nav-links .active {
+            text-decoration: underline;
+        }
+        
+        /* Main Content Layouts */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0 4rem;
+        }
+        
+        .about-text {
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            width: 100%;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .portfolio-item {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .portfolio-item h3 {
+            font-size: 1.2rem;
+            font-weight: normal;
+            margin-top: 0.8rem;
+            color: #777;
+        }
+        
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #ddd;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .copyright {
+            margin-top: 3rem;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Page-specific */
+        .hero-section {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links li {
+                margin-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="container">
+        <a href="index.html" class="logo">Viyata Atelier</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </header>
+
+    <!-- PORTFOLIO PAGE -->
+    <main class="container">
+        <section>
+            <h1>Portfolio</h1>
+            <p>A collection of selected works in data visualization, UI/UX design, and visual storytelling.</p>
+        </section>
+        
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="/api/placeholder/400/320" alt="Project One - Data Visualization">
+                <h3>Project One</h3>
+                <p>Interactive dashboard visualizing climate change impacts across different regions.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="/api/placeholder/400/320" alt="Exercise One - Architecture Study">
+                <h3>Exercise One</h3>
+                <p>Visual study of historical architecture at Purdue University.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="/api/placeholder/400/320" alt="Personal Project">
+                <h3>Personal</h3>
+                <p>Typography and poster design for music events.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="/api/placeholder/400/320" alt="BakeSpot Project">
+                <h3>BakeSpot</h3>
+                <p>UI/UX design for a baking recipe sharing platform.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="/api/placeholder/400/320" alt="Data Storytelling">
+                <h3>Data Storytelling</h3>
+                <p>Visual narrative on global coffee consumption patterns.</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="/api/placeholder/400/320" alt="Typography Study">
+                <h3>Typography Study</h3>
+                <p>Exploration of typefaces and layout principles.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Viyata Atelier</h3>
+                    <p>Transforming data into meaningful visual stories.</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <ul class="footer-links">
+                        <li>viyata@email.com</li>
+                        <li>Purdue University</li>
+                        <li>West Lafayette, IN</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Connect</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">GitHub</a></li>
+                        <li><a href="#">Behance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 Viyata Atelier. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
